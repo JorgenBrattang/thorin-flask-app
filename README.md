@@ -213,7 +213,7 @@ Now we will add a smart function to this.
 
 ```html
 {% block content %}  <!-- content, is just the name I chose. This can be called what ever you like! -->
-{% endblock content %}
+{% endblock %}
 ```
 
 Within these the code that will be different from the <strong>index.html and about.html</strong> will be written here.
@@ -238,7 +238,7 @@ This is how it looks like:
     </nav>
 
     {% block content %}
-    {% endblock content %}
+    {% endblock %}
 
 </body>
 </html>
@@ -250,7 +250,7 @@ Now lets edit our <strong>index.html and about.html</strong>
 {% extends "base.html" %}
 {% block content %}
     <h1>Home Page</h1>
-{% endblock content %}
+{% endblock %}
 ```
 
 This is all we need for the <strong>index.html</strong>, same goes for the about page with the difference within the <strong>h1</strong> tag.
