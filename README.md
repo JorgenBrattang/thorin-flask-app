@@ -1,108 +1,298 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+## This is a project to go through a lesson about FLASK framework from Code Institute
 
-Welcome JorgenBrattang,
-
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+### Install the framework
+First you need to install the frameworks to your IDE, enter this code into your terminal
 
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
+pip3 install flask
 ```
 
-**Anything more?**
+Then your IDE will install the flask Frameworks.
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Create our run.py
+You can either create it in the explorer or write this code in the terminal:
 
----
+```
+touch run.py
+```
 
-Happy coding!
+Now its time to implement Flask to our file
+
+### Implement Flask
+To make the Flask framework to work this code needs to be implemented
+
+```python
+import os
+from flask import Flask
+
+app = Flask(__name__)
+
+if __name__ == "__main__":
+    app.run(
+        host=os.environ.get("IP", "0.0.0.0"),
+        port=int(os.environ.get("PORT", "5000")),
+        debug=True)  # Change this when it's going to be submitted
+```
+
+### Hello World!
+To make the notorious Hello World, is to make a decorator route from the flask frameworks:
+
+```python
+@app.route("/")
+def index():
+    return "Hello World!"
+```
+
+### Run the code
+To make a simple "Hello World!" appear when you launch the code from the terminal with this line of code:
+
+```
+python3 run.py
+```
+
+### Run HTML
+You can build the entier HTML code within the python file, but that will just make it messy.
+
+```python
+@app.route("/")
+def index():
+    return "<h1>Hello</h1><h2>World!</h2>"
+```
+
+This will render just fine, but build a whole HTML page here would as stated above.. messy..
+So to work around this, you can import the HTML file using templates by adding "render_template".
+
+```python
+from flask import Flask, render_template
+```
+
+This will allow you to optimize the code and make it look clean and neat.
+
+```python
+@app.route("/")
+def index():
+    return render_template("index.html")
+```
+
+To make this work, you need to create a folder called <strong>"templates"</strong> and within the folder, create the <strong>"index.html"</strong>
+There you can have the boilerplate HTML within the <strong>"index.html"</strong>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask frameworks</title>
+</head>
+<body>
+    <h1>Hello</h1><h2>World!</h2>
+</body>
+</html>
+```
+
+If you launch the code again, it will look the same.
+Now lets add a navigation bar and take away the <strong>"Hello world"</strong>
+
+```html
+<body>
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    <h1>Home Page</h1>
+</body>
+```
+
+Time to add the <strong>About</strong> page, just copy and paste the <strong>index.html</strong> and rename
+it to <strong>about.html</strong>
+
+And within the run.py file we will make a new route to the new page.
+
+```python
+@add.route("/about")
+def about():
+    return render_template("about.html")
+```
+
+As you can see instead of just <strong>("/")</strong> we added <strong>("/about")</strong>, this is because
+using the first will indicate its the <strong>index</strong> that we all know is the base of all websites.
+
+Now to make these link to each other, we need to change our HTML a bit.
+
+```html
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+    <h1>Home Page</h1>  <!-- About Page, within about.html-->
+</body>
+```
+
+The curle braclets enclosement is recognized by the Flask frameworks to expect lines of code to be executed.
+Within the <strong>url_for()</strong> the content needs to match up with our <strong>routes</strong> that we created
+within our run.py file.
+
+```python
+@add.route("/about")
+def about():  # <---- This one!
+    return render_template("about.html")
+```
+
+Otherwise it wont work.
+
+### Recap code
+
+Your run.py should look like this now:
+
+```python
+import os
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+if __name__ == "__main__":
+    app.run(
+        host=os.environ.get("IP", "0.0.0.0"),
+        port=int(os.environ.get("PORT", "5000")),
+        debug=True)  # Change this when it's going to be real launch
+```
+
+### Important! 
+As the comment above states. <strong>debug=True</strong> needs to be set to <strong>False</strong>
+when your going to launch your site, otherwise it's a security risk!
+
+### Run the code
+So when you refresh your page, you can now press the navigation elements to make it go to the different pages.
+
+### Base content
+Now there is a nice trick to save time within the Flask frameworks, that will let you have a base template of
+HTML so you don't need to change for example the navigation bar on each file.
+
+Make a new file called: <strong>base.html</strong>
+And add this content to it.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask frameworks</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+</body>
+</html>
+```
+
+Now we will add a smart function to this.
+
+```html
+{% block content %}  <!-- content, is just the name I chose. This can be called what ever you like! -->
+{% endblock content %}
+```
+
+Within these the code that will be different from the <strong>index.html and about.html</strong> will be written here.
+
+This is how it looks like:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask frameworks</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+
+    {% block content %}
+    {% endblock content %}
+
+</body>
+</html>
+```
+
+Now lets edit our <strong>index.html and about.html</strong>
+
+```html
+{% extends "base.html" %}
+{% block content %}
+    <h1>Home Page</h1>
+{% endblock content %}
+```
+
+This is all we need for the <strong>index.html</strong>, same goes for the about page with the difference within the <strong>h1</strong> tag.
+
+Now to explain this, we need to extend the <strong>base.html</strong> for <strong>index.html</strong> so it's included within our file. Then just add as
+we did in the <strong>base.html</strong> the block and endblock, which hold our unique code for that page.
+
+```html
+<h1>Home Page</h1>
+```
+
+And if you now refresh your page when you done the changes above, you will now see the same thing!
+
+### Create a contact page
+To see this in power, lets add another page. <strong>contact.html</strong>
+
+First create a route within the <strong>run.py</strong>
+
+```python
+@add.route("/contact")
+def contact():
+    return render_template("contact.html")
+```
+
+Then duplicate either <strong>index.html or about.html</strong> and just change the <strong>h1</strong> tag to
+
+```html
+<h1>Come work with Us!</h1>
+```
+
+Now to add this to our navigation bar, go to your <strong>base.html</strong> file and add this:
+
+```html
+<nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('contact') }}">Contact</a></li>
+        </ul>
+    </nav>
+```
+
+Remember that the <strong>url_for()</strong> path needs to match the route name within <strong>run.py</strong>.
+
+Now refresh the page, and you will see that you have three pages to choose from and all works just fine!
