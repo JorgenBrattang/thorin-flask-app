@@ -308,3 +308,9 @@ heroku login -1
 
 Enter your Email, then paste in your API key.
 Now you are logged in!
+
+Push to Heroku:
+git push -u heroku main
+
+Requirements.txt creation:
+pip3 freeze --local > requirements.txt
