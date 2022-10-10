@@ -32,10 +32,10 @@ def about_member(member_name):
     return render_template("member.html", member=member)
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
-        flash("This {}, we have recived your message!".format(
+        flash("Thanks {}, we have received your message!".format(
             request.form.get("name")))
     return render_template("contact.html", page_title="Contact")
 
