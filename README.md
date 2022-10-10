@@ -296,3 +296,15 @@ Now to add this to our navigation bar, go to your <strong>base.html</strong> fil
 Remember that the <strong>url_for()</strong> path needs to match the route name within <strong>run.py</strong>.
 
 Now refresh the page, and you will see that you have three pages to choose from and all works just fine!
+
+
+### Login to Heroku
+
+First get the API:
+https://dashboard.heroku.com/account
+
+Then run the command in the terminal:
+heroku login -1
+
+Enter your Email, then paste in your API key.
+Now you are logged in!
